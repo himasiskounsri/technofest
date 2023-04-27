@@ -1,4 +1,4 @@
-import { NavItem } from "@/types/NavItem";
+import { NavItem } from "@/types/types";
 import { Stack } from "@chakra-ui/react";
 import { FC } from "react";
 import { NAV_ITEMS } from "../../../dummy";

@@ -9,6 +9,16 @@ export const COMPETITIONS: Competition[] = [
     imageSrc: "/images/competition1.png",
     // TODO: Ganti nama variabel
     pathName: "uiuxdesign",
+    contactPersons: [
+      {
+        name: "Honolulu",
+        whatsapp: "082177662832",
+      },
+      {
+        name: "Honolulu",
+        whatsapp: "082177662832",
+      },
+    ],
   },
   {
     id: "2",
@@ -18,6 +28,16 @@ export const COMPETITIONS: Competition[] = [
     imageSrc: "/images/competition2.png",
     // TODO: Ganti nama variabel
     pathName: "poster",
+    contactPersons: [
+      {
+        name: "Honolulu",
+        whatsapp: "082177662832",
+      },
+      {
+        name: "Honolulu",
+        whatsapp: "082177662832",
+      },
+    ],
   },
   {
     id: "3",
@@ -27,6 +47,16 @@ export const COMPETITIONS: Competition[] = [
     imageSrc: "/images/competition3.png",
     // TODO: Ganti nama variabel
     pathName: "competitiveprogramming",
+    contactPersons: [
+      {
+        name: "Honolulu",
+        whatsapp: "082177662832",
+      },
+      {
+        name: "Honolulu",
+        whatsapp: "082177662832",
+      },
+    ],
   },
   {
     id: "4",
@@ -36,6 +66,16 @@ export const COMPETITIONS: Competition[] = [
     imageSrc: "/images/competition4.png",
     // TODO: Ganti nama variabel
     pathName: "essay",
+    contactPersons: [
+      {
+        name: "Honolulu",
+        whatsapp: "082177662832",
+      },
+      {
+        name: "Honolulu",
+        whatsapp: "082177662832",
+      },
+    ],
   },
 ];
 

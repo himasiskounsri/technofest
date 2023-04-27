@@ -1,7 +1,6 @@
-import { useShowNavbar } from "@/hooks/useShowNavbar";
-import { NavItem } from "@/types/NavItem";
+import { NavItem } from "@/types/types";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { Stack, Flex, Icon, Box, Link, Text } from "@chakra-ui/react";
+import { Box, Flex, Icon, Link, Stack, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 interface DesktopSubNavProps {

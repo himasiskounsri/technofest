@@ -1,14 +1,13 @@
-import { NavItem } from "@/types/NavItem";
+import { NavItem } from "@/types/types";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
-  useDisclosure,
+  Collapse,
+  Flex,
+  Icon,
   Link,
   Stack,
-  Flex,
-  useColorModeValue,
-  Icon,
-  Collapse,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React, { FC } from "react";

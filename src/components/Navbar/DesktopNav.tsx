@@ -1,4 +1,4 @@
-import { useShowNavbar } from "@/hooks/useShowNavbar";
+import { NavItem } from "@/types/types";
 import {
   Box,
   Link,
@@ -8,9 +8,8 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import DesktopSubNav from "./DesktopSubNav";
-import { NavItem } from "@/types/NavItem";
 import { NAV_ITEMS } from "../../../dummy";
+import DesktopSubNav from "./DesktopSubNav";
 
 interface DesktopNavProps {
   showNavbar: boolean;

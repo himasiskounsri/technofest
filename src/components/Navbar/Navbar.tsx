@@ -1,5 +1,3 @@
-import React from "react";
-
 import { useShowNavbar } from "@/hooks/useShowNavbar";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
@@ -18,6 +16,7 @@ import {
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
+import React from "react";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 

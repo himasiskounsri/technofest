@@ -91,8 +91,9 @@ export default function CompetitionDetail({ competition }: Props) {
             Lorem, ipsum dolor.
           </Text>
           <VStack maxW="xl">
-            <ContactPersonCard />
-            <ContactPersonCard />
+            {competition.contactPersons?.map((contactPerson, key) => (
+              <ContactPersonCard key={key} contactPerson={contactPerson} />
+            ))}
           </VStack>
         </Flex>
         <Flex as="section" direction="column" align="center" w="100%">
