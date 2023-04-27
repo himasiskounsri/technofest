@@ -1,35 +1,32 @@
-import React from "react";
 import {
   Box,
-  chakra,
   Container,
-  Text,
-  HStack,
-  VStack,
   Flex,
-  useColorModeValue,
+  Heading,
+  Text,
+  chakra,
   useBreakpointValue,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 const milestones = [
   {
     id: 1,
-    date: "MARCH 30, 2022",
-    title: "Chakra Hackathon",
-    description: `Winner of first ever ChakraUI Hackathon. On sait depuis longtemps que travailler avec du texte lisible et contenant du sens.`,
+    date: "1 Mei 2023",
+    title: "UAS RPL",
+    description: `Ke bukit menghadap Pak Firdaus. Seluruh anggota kelompok harus ada, atau E.`,
   },
   {
     id: 2,
-    date: "July 30, 2021",
-    title: "Open Source, first contribution",
-    description: `Fixing a typo, to fix a bug, contributing to Open Source and collaborating to improve technology for everyone, Ahmad's world changed again!.`,
+    date: "3 Mei 2023",
+    title: "UAS Manpro",
+    description: `Kabar-kabar offline, liatlah be agek :).`,
   },
   {
     id: 3,
-    date: "July 30, 2018",
-    title: "Freelancing, started working for myself",
-    description:
-      "Ahmad starts his own business consulting for companies as a fullstack developer. Clients include UK Government departments, UK banks, global fintechs and startups.",
+    date: "20 Juni 2023",
+    title: "Hari-Hari Mager",
+    description: "Hari libur tigo bulan ngapoi be.",
   },
 ];
 
@@ -96,11 +93,11 @@ const Card = ({ id, title, description, date }: CardProps) => {
   }
 
   return (
-    <HStack
+    <Flex
       flex={1}
       p={{ base: 3, sm: 6 }}
       bg={useColorModeValue("gray.100", "gray.800")}
-      spacing={5}
+      // spacing={5}
       rounded="lg"
       alignItems="center"
       pos="relative"
@@ -121,18 +118,27 @@ const Card = ({ id, title, description, date }: CardProps) => {
       }}
     >
       <Box>
-        <Text fontSize="lg" color={isEvenId ? "teal.400" : "blue.400"}>
+        <Text
+          fontFamily="'Fira Code', monospace"
+          fontSize="lg"
+          color={isEvenId ? "teal.400" : "blue.400"}
+        >
           {date}
         </Text>
-
-        <VStack spacing={2} mb={3} textAlign="left">
-          <chakra.h1 fontSize="2xl" lineHeight={1.2} fontWeight="bold" w="100%">
-            {title}
-          </chakra.h1>
-          <Text fontSize="md">{description}</Text>
-        </VStack>
+        <Heading
+          as="h3"
+          color={useColorModeValue("gray.700", "white")}
+          fontSize={"2xl"}
+          textAlign="left"
+          mb={2}
+        >
+          {title}
+        </Heading>
+        <Text fontWeight={300} fontSize="12pt" color="gray.600">
+          {description}
+        </Text>
       </Box>
-    </HStack>
+    </Flex>
   );
 };
 

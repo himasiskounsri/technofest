@@ -1,17 +1,13 @@
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import {
   Alert,
   AlertIcon,
   Button,
-  Card,
   Container,
   Flex,
   FormControl,
   FormLabel,
   Heading,
   Input,
-  InputGroup,
-  InputRightElement,
   Link,
   Select,
   Stack,

@@ -1,16 +1,13 @@
 import {
-  Container,
-  VStack,
-  Flex,
-  Heading,
-  Alert,
-  AlertIcon,
-  Card,
-  Button,
-  Link,
-  Text,
-  HStack,
   Badge,
+  Button,
+  Card,
+  Container,
+  Flex,
+  HStack,
+  Heading,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
 
 export default function Events() {

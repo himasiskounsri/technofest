@@ -1,23 +1,33 @@
+/*
+ * =================================================================================================
+ * Page            : LogIn
+ * Path            : /login
+ * Description     : Halaman log in untuk peserta agar mendapatkan hak mengikuti
+ *                   kompetisi dan seminar.
+ * Components used : -
+ * =================================================================================================
+ */
+
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import {
+  Button,
+  Card,
   Flex,
-  Box,
   FormControl,
   FormLabel,
+  Heading,
+  Image,
   Input,
   InputGroup,
-  HStack,
   InputRightElement,
+  Link,
   Stack,
-  Button,
-  Heading,
   Text,
   useColorModeValue,
-  Link,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
-export default function Login() {
+export default function LogIn() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -27,33 +37,46 @@ export default function Login() {
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
     >
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+      <Stack spacing={8} maxW={"md"} w="full" py={12} px={6}>
         <Stack align={"center"}>
-          <Heading fontSize={"4xl"} textAlign={"center"}>
+          <Heading
+            as="h1"
+            fontSize={{ base: "20pt", md: "32pt" }}
+            fontWeight={700}
+            color="gray.700"
+            mb={2}
+          >
             Log In
           </Heading>
-          <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool features ✌️
-          </Text>
         </Stack>
-        <Box
+        <Card
+          variant="outline"
           rounded={"lg"}
-          bg={useColorModeValue("white", "gray.700")}
-          boxShadow={"lg"}
-          p={8}
+          maxW="xl"
+          w="full"
+          px={8}
+          py={12}
         >
+          <Button variant="oauth" w="full" mb={2}>
+            <Image src="/images/googlelogo.png" height="20px" mr={4} alt="" />
+            Lanjutkan dengan Google
+          </Button>
+          <Text textAlign="center" my={4} color="gray.400">
+            ATAU
+          </Text>
           <Stack spacing={4}>
-            <FormControl id="email" isRequired>
-              <FormLabel>Email</FormLabel>
-              <Input type="email" />
+            <FormControl id="email">
+              <Input type="email" placeholder="Email" />
             </FormControl>
-            <FormControl id="password" isRequired>
-              <FormLabel>Password</FormLabel>
+            <FormControl id="password">
               <InputGroup>
-                <Input type={showPassword ? "text" : "password"} />
+                <Input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Kata sandi"
+                />
                 <InputRightElement h={"full"}>
                   <Button
-                    variant={"ghost"}
+                    variant={"unstyled"}
                     onClick={() =>
                       setShowPassword((showPassword) => !showPassword)
                     }
@@ -63,26 +86,21 @@ export default function Login() {
                 </InputRightElement>
               </InputGroup>
             </FormControl>
-            <Stack spacing={10} pt={2}>
-              <Button
-                loadingText="Submitting"
-                size="lg"
-                bg={"blue.400"}
-                color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
-              >
-                Sign up
+            <Stack spacing={10} pt={6}>
+              <Button loadingText="Submitting" variant="animated">
+                Log In
               </Button>
             </Stack>
             <Stack pt={6}>
               <Text align={"center"}>
-                Already a user? <Link color={"blue.400"}>Login</Link>
+                Belum mendaftar?{" "}
+                <Link href="/registrasi" color={"purple.400"}>
+                  Daftar
+                </Link>
               </Text>
             </Stack>
           </Stack>
-        </Box>
+        </Card>
       </Stack>
     </Flex>
   );

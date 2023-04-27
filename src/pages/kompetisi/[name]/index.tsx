@@ -1,5 +1,6 @@
-import ContactPersonCard from "@/components/ContactPerson/ContactPersonCard";
+import ContactPersonCard from "@/components/Cards/ContactPerson/ContactPersonCard";
 import Milestones from "@/components/Milestones/Milestones";
+import { Competition } from "@/types/types";
 import {
   Accordion,
   AccordionButton,
@@ -16,14 +17,26 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { GetServerSideProps } from "next";
+import Link from "next/link";
+import { COMPETITIONS } from "../../../../dummy";
 
-export default function Kompetition() {
+interface Props {
+  competition: Competition;
+}
+
+export default function CompetitionDetail({ competition }: Props) {
   return (
     <Container maxW="6xl" py="10rem">
       <VStack spacing="12rem">
         <Flex as="section" direction="column" align="center">
-          <Image src="/images/crystal.png" alt="" w="8rem" mb={6} />
-          <Text fontSize="14pt" textTransform="uppercase" letterSpacing="0.6em">
+          <Image src={competition.imageSrc} alt="" w="8rem" mb={6} />
+          <Text
+            fontSize="14pt"
+            textTransform="uppercase"
+            letterSpacing="0.6em"
+            mr="-0.6em"
+          >
             Kompetisi
           </Text>
           <Heading
@@ -32,16 +45,22 @@ export default function Kompetition() {
             fontWeight={300}
             mb={2}
           >
-            UI/UX Design
+            {competition.name}
           </Heading>
           <Text mb={10} textAlign="center" maxW="xl">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio
-            expedita cum eligendi atque dolorum hic error ipsam earum velit
-            vero. A quidem et sit odit dolores possimus nesciunt nihil ipsam.
+            {competition.description}
           </Text>
           <HStack>
-            <Button>Ikuti Kompetisi</Button>
-            <Button>Guidebook</Button>
+            <Link href={`/competition/${competition.pathName}/daftar`}>
+              <Button variant="animated" maxW="10rem" w="full">
+                Ikuti Kompetisi
+              </Button>
+            </Link>
+            <Link href="#">
+              <Button variant="animatedOutline" maxW="10rem" w="full">
+                Guidebook
+              </Button>
+            </Link>
           </HStack>
         </Flex>
         <Flex as="section" direction="column" align="center">
@@ -147,3 +166,24 @@ export default function Kompetition() {
     </Container>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const name = ctx.params?.name as string;
+
+  const competition =
+    COMPETITIONS.filter((competition: Competition) => {
+      return competition.pathName === name;
+    })[0] ?? null;
+
+  if (!competition) {
+    return {
+      notFound: true, //redirects to 404 page
+    };
+  }
+
+  return {
+    props: {
+      competition,
+    },
+  };
+};

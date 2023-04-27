@@ -1,69 +1,55 @@
-import React from "react";
+import GridLarge from "@/components/Icons/GridLarge";
+import { Competition } from "@/types/types";
 import {
   Box,
-  Center,
-  Heading,
-  Text,
-  Stack,
-  Avatar,
-  useColorModeValue,
-  Image,
   Button,
+  Card,
   Flex,
+  Heading,
+  Image,
+  Link,
+  Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
+import React from "react";
 
-type CompetitionCardProps = {};
+interface CompetitionCardProps {
+  competition: Competition;
+}
 
-const CompetitionCard: React.FC<CompetitionCardProps> = () => {
+const CompetitionCard: React.FC<CompetitionCardProps> = ({ competition }) => {
   return (
-    <Center py={6}>
-      <Box
-        maxW={"445px"}
-        w={"full"}
-        bg={useColorModeValue("white", "gray.900")}
-        boxShadow={"2xl"}
-        rounded={"md"}
-        p={6}
-        overflow={"hidden"}
-      >
-        <Box
-          h={"210px"}
-          bg={"gray.100"}
-          mt={-6}
-          mx={-6}
+    <Box bgGradient="linear(to-b, gray.100, white)" rounded=".7rem" p={1}>
+      <Card overflow={"hidden"} bg="white" h="full" position="relative">
+        <GridLarge position="absolute" insetX="0" mx="auto" />
+        <Image
+          src={competition.imageSrc}
+          alt=""
+          w={"60%"}
+          mx="auto"
           mb={6}
-          pos={"relative"}
-        >
-          <Image
-            src={
-              "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-            }
-            alt=""
-            h={"210px"}
-            w={"100%"}
-            objectFit="cover"
-          />
-        </Box>
-        <Flex direction="column">
+          zIndex={1}
+        />
+        <Flex direction="column" flexGrow={1} zIndex={1}>
           <Heading
             as="h3"
             color={useColorModeValue("gray.700", "white")}
             fontSize={"2xl"}
-            fontFamily={"body"}
             mb={2}
           >
-            Boost your conversion rate
+            {competition.name}
           </Heading>
-          <Text color={"gray.500"} mb={6}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
+          <Text fontWeight={300} fontSize="12pt" color="gray.600" mb={6}>
+            {competition.description}
           </Text>
-          <Button>Explore</Button>
         </Flex>
-      </Box>
-    </Center>
+        <Link href={`/kompetisi/${competition.pathName}`}>
+          <Button variant="animatedOutline" w="full">
+            Info
+          </Button>
+        </Link>
+      </Card>
+    </Box>
   );
 };
 

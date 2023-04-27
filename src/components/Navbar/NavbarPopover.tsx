@@ -1,16 +1,8 @@
-import { ChevronRightIcon } from "@chakra-ui/icons";
 import {
-  Box,
   Button,
-  Flex,
-  Icon,
   Popover,
   PopoverContent,
   PopoverTrigger,
-  Stack,
-  Text,
-  Link,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 

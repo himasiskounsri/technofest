@@ -1,260 +1,319 @@
+/*
+ * =================================================================================================
+ * Page            : Home
+ * Path            : /
+ * Description     : Landing page
+ * Components used : -
+ * =================================================================================================
+ */
+
 import CompetitionCard from "@/components/Cards/Competition/CompetitionCard";
 import ImageCard from "@/components/Cards/Image/ImageCard";
 import SeminarCard from "@/components/Cards/Seminar/SeminarCard";
+import Blob from "@/components/Icons/Blob";
+import Circuit from "@/components/Icons/Circuit";
+import Floor from "@/components/Icons/Floor";
+import Globe from "@/components/Icons/Globe";
+import GridLarge from "@/components/Icons/GridLarge";
+import GridSmall from "@/components/Icons/GridSmall";
 import Milestones from "@/components/Milestones/Milestones";
+import Section from "@/components/Section/Section";
+import SectionHeading from "@/components/Section/SectionHeading";
+import SectionParagraph from "@/components/Section/SectionParagraph";
+import SectionSubheading from "@/components/Section/SectionSubheading";
+import { Messenger } from "@/lib/randomTransition";
 import {
-  Heading,
-  Image,
-  Container,
-  Flex,
-  Text,
-  Button,
-  Box,
-  VStack,
-  SimpleGrid,
   Accordion,
-  AccordionItem,
   AccordionButton,
   AccordionIcon,
+  AccordionItem,
   AccordionPanel,
+  Box,
+  Button,
+  Container,
+  Flex,
   HStack,
+  Heading,
+  Link,
+  SimpleGrid,
+  Text,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { BsFillLightningChargeFill } from "react-icons/bs";
+import { HOME, SEMINARS } from "../../dummy";
 
 export default function Home() {
+  const [messenger, setMessenger] = useState("Technofest.");
+
+  useEffect(() => {
+    new Messenger(setMessenger);
+  }, []);
+
   return (
-    <Container maxW="6xl" py="10rem">
-      {/* <VStack spacing="12rem"> */}
-      <Flex as="section" direction="column" alignItems="center" py="6rem">
-        <Image src="/images/crystal.png" alt="" w="8rem" />
-        <Heading
-          as="h1"
-          fontSize={{ base: "20pt", md: "60pt" }}
-          fontWeight={300}
-          mb={10}
-        >
-          Technology Festival
-        </Heading>
-        {/* <Text mb={4}>
-          Himpunan Mahasiswa Sistem Komputer Universitas Sriwijaya
-        </Text> */}
-        <HStack>
-          <Button>Explore</Button>
-          <Button variant="outline">Lihat guidebook</Button>
-        </HStack>
-      </Flex>
-      <Flex id="about" as="section" py="6rem">
-        <Box>
-          <Box w="30rem" h="16rem" bg="gray.200">
-            <Image
-              src={
-                "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-              }
-              alt=""
-              w="30rem"
-              h="16rem"
-              objectFit="cover"
-            />
-          </Box>
-        </Box>
-        <Flex direction="column" ml={20}>
-          <Heading
-            fontSize="12pt"
-            textTransform="uppercase"
-            letterSpacing="0.6em"
-          >
-            Tentang
-          </Heading>
-          <Text fontSize="20pt" mb={6}>
-            Selamat Datang di Technofest 2023
-          </Text>
-          <Text as="p">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-            autem mollitia accusantium hic eaque nemo velit quia natus
-            voluptates rem numquam reiciendis itaque aliquam laborum at in odio,
-            maiores similique. Sapiente quisquam odio maxime id quos dignissimos
-            blanditiis vel corporis.
-          </Text>
-        </Flex>
-      </Flex>
-      <Flex as="section" direction="column" align="center" py="6rem">
-        <Heading
-          fontSize="12pt"
-          textTransform="uppercase"
-          letterSpacing="0.6em"
-        >
-          Kompetisi
-        </Heading>
-        <Text fontSize="20pt" mb={6}>
-          Lorem, ipsum dolor.
-        </Text>
-        <SimpleGrid columns={4} columnGap={4}>
-          <CompetitionCard />
-          <CompetitionCard />
-          <CompetitionCard />
-          <CompetitionCard />
-        </SimpleGrid>
-      </Flex>
-      <Flex as="section" direction="column" align="center" py="6rem">
-        <Heading
-          fontSize="12pt"
-          textTransform="uppercase"
-          letterSpacing="0.6em"
-        >
-          Seminar
-        </Heading>
-        <Text fontSize="20pt" mb={6}>
-          Lorem, ipsum dolor.
-        </Text>
-        <SimpleGrid columns={3} columnGap={4} maxW="2xl">
-          <SeminarCard />
-          <SeminarCard />
-          <SeminarCard />
-        </SimpleGrid>
-        <Button>Explore</Button>
-      </Flex>
-      {/* Milestone */}
-      <Flex
-        id="milestones"
-        as="section"
+    <Box overflowX="hidden">
+      {
+        // *======================================================================
+        // *HERO
+      }
+      <Section
+        position="relative"
+        minH="100vH"
+        bg="black"
         direction="column"
-        align="center"
-        py="6rem"
+        alignItems="center"
+        justifyContent="center"
+        pt={{ base: "6rem", md: "10rem" }}
+        pb="12rem"
+        zIndex={0}
       >
-        <Heading
-          fontSize="12pt"
-          textTransform="uppercase"
-          letterSpacing="0.6em"
+        <Blob
+          position="absolute"
+          top={{ base: "-15rem", md: "-8rem" }}
+          right={{ base: "-24rem", md: "auto" }}
+          w={{ base: "54rem", md: "90rem" }}
+          zIndex={1}
+        />
+        <Floor
+          position="absolute"
+          w={{ base: "60rem", md: "auto" }}
+          bottom="-10vh"
+          zIndex={1}
+        />
+        <Circuit
+          fill="white"
+          transform="rotate(-90deg)"
+          position="absolute"
+          zIndex={1}
+          opacity="0.3"
+          // h={{ base: 500, md: 1000 }}
+          h="100vh"
+          w={{ base: 500, md: 1000 }}
+          bottom={{ base: 0, md: -20 }}
+          mixBlendMode="overlay"
+        />
+        <Flex
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          zIndex={2}
         >
-          Agenda
-        </Heading>
-        <Text fontSize="20pt" mb={6}>
-          Lorem, ipsum dolor.
-        </Text>
-        {
-          // TODO: Perlu banyak perubahan dari sini, masih ada data dummy
-        }
-        <Milestones />
-      </Flex>
-      <Flex as="section" w="100%" py="6rem">
-        <Flex direction="column" maxW="md" mr={20}>
-          <Heading
-            fontSize="12pt"
-            textTransform="uppercase"
-            letterSpacing="0.6em"
+          <Text
+            fontSize={{ base: "12pt", md: "20pt" }}
+            color="whiteAlpha.800"
+            fontWeight={300}
+            fontFamily="'Fira Code', monospace"
+            mb={8}
           >
-            FaQ
+            {messenger}
+          </Text>
+
+          <Heading
+            as="h1"
+            fontSize={{ base: "36pt", md: "60pt" }}
+            fontWeight={300}
+            mb={10}
+            color="white"
+            textAlign="center"
+          >
+            <Text as="span">Technology</Text>
+            <br />
+            <Text as="span" fontWeight={600}>
+              Festival 2023.
+            </Text>
           </Heading>
-          <Text fontSize="20pt" mb={6}>
-            Frequently asked Question
-          </Text>
-          <Text as="p">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-            autem mollitia accusantium hic eaque nemo velit quia natus
-            voluptates rem numquam reiciendis itaque aliquam laborum at in odio,
-            maiores similique. Sapiente quisquam odio maxime id quos dignissimos
-            blanditiis vel corporis.
-          </Text>
+          <HStack>
+            <Link href="/#about">
+              <Button
+                variant="animatedWhite"
+                leftIcon={<BsFillLightningChargeFill />}
+              >
+                Explore
+              </Button>
+            </Link>
+            <Link>
+              <Button variant="animatedWhiteOutline">Lihat Guidebook</Button>
+            </Link>
+          </HStack>
         </Flex>
+      </Section>
+      {
+        // *END OF HERO
+        // *======================================================================
+        // *ABOUT
+      }
+      <Container id="main" px={6} maxW="6xl" py={{ base: "0", md: "10rem" }}>
+        <Section id="about" direction={{ base: "column", lg: "row" }}>
+          <Box w="full" h="14rem" flexBasis="40%">
+            <Globe boxSize={{ base: "14rem", md: "20rem" }} />
+          </Box>
+          <Flex
+            mt={{ base: "2rem", md: "auto" }}
+            direction="column"
+            ml={{ md: 20 }}
+            flexBasis="60%"
+            position="relative"
+          >
+            <GridSmall position="absolute" right={-10} top={-10} />
+            <SectionHeading>{HOME.about.title}</SectionHeading>
+            <SectionSubheading>{HOME.about.subtitle}</SectionSubheading>
+            <SectionParagraph>{HOME.about.content}</SectionParagraph>
+          </Flex>
+        </Section>
+        {
+          // *END OF ABOUT
+          // *======================================================================
+          // *COMPETIIONS
+        }
+        <Section direction="column" align="center">
+          <Circuit
+            position="absolute"
+            left={-60}
+            fill="gray.200"
+            display={{ base: "none", md: "block" }}
+          />
+          <SectionHeading>{HOME.competitions.title}</SectionHeading>
+          <SectionSubheading>{HOME.competitions.subtitle}</SectionSubheading>
+          <SimpleGrid columns={{ base: 1, md: 4 }} columnGap={4} rowGap={4}>
+            {HOME.competitions.listOfCompetition.map((competition, key) => (
+              <CompetitionCard key={key} competition={competition} />
+            ))}
+          </SimpleGrid>
+        </Section>
+        {
+          // *END OF COMPETITIONS
+          // *======================================================================
+          // *SEMINAR
+        }
+        <Section direction="column" align="center" position="relative">
+          <GridLarge
+            position="absolute"
+            left={{ base: -10, md: 0 }}
+            top={{ base: 10, md: "auto" }}
+          />
+          <GridSmall
+            position="absolute"
+            bottom={{ base: 40, md: 0 }}
+            right={0}
+          />
+          <SectionHeading>Seminar</SectionHeading>
+          <SectionSubheading>{SEMINARS[0].name}</SectionSubheading>
+          <SimpleGrid
+            columns={{ base: 1, md: 3 }}
+            columnGap={4}
+            rowGap={4}
+            maxW="2xl"
+          >
+            {SEMINARS[0].persons.map((person, key) => (
+              <SeminarCard key={key} person={person} />
+            ))}
+          </SimpleGrid>
 
-        <Accordion allowToggle maxW="xl" flexGrow={1}>
-          <AccordionItem>
-            <h2>
-              <AccordionButton>
-                <Box as="span" flex="1" textAlign="left">
-                  Section 1 title
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </AccordionPanel>
-          </AccordionItem>
+          <Link href={`/seminar/${SEMINARS[0].pathName}`} maxW="10rem" w="full">
+            <Button variant="animatedOutline" maxW="10rem" w="full">
+              Info
+            </Button>
+          </Link>
+        </Section>
+        {
+          // *END OF SEMINAR
+          // *======================================================================
+          // *MILESTONES
+        }
+        <Section id="milestones" direction="column" align="center">
+          <SectionHeading>Agenda</SectionHeading>
+          <SectionSubheading>Agenda Kito Kuliah</SectionSubheading>
+          {
+            // TODO: Perlu banyak perubahan dari sini, masih ada data dummy
+          }
+          <Milestones />
+        </Section>
+        {
+          // *END OF MILESTONES
+          // *======================================================================
+          // *FAQ
+        }
+        <Section w="100%" direction="column" position="relative">
+          <GridSmall position="absolute" top={4} left={-4} />
+          <SectionHeading>FaQ</SectionHeading>
+          <SectionSubheading>Frequently asked Question</SectionSubheading>
+          <Flex direction={{ base: "column", md: "row" }}>
+            <SectionParagraph
+              flexBasis="40%"
+              mr={{ base: 0, md: 12 }}
+              mb={{ base: 6, md: "auto" }}
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+              autem mollitia accusantium hic eaque nemo velit quia natus
+              voluptates rem numquam reiciendis itaque aliquam laborum at in
+              odio, maiores similique. Sapiente quisquam odio maxime id quos
+              dignissimos blanditiis vel corporis.
+            </SectionParagraph>
 
-          <AccordionItem>
-            <h2>
-              <AccordionButton>
-                <Box as="span" flex="1" textAlign="left">
-                  Section 2 title
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </AccordionPanel>
-          </AccordionItem>
-
-          <AccordionItem>
-            <h2>
-              <AccordionButton>
-                <Box as="span" flex="1" textAlign="left">
-                  Section 2 title
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-              amet consectetur adipisicing elit. Ab repellendus doloribus dicta
-              quos laboriosam voluptatem magnam facere consectetur inventore?
-              Magni.
-            </AccordionPanel>
-          </AccordionItem>
-        </Accordion>
-      </Flex>
-      <Flex as="section" direction="column" align="center" py="6rem">
-        <Heading
-          fontSize="12pt"
-          textTransform="uppercase"
-          letterSpacing="0.6em"
-        >
-          Sponsor
-        </Heading>
-        <Text fontSize="20pt" mb={6}>
-          Lorem, ipsum dolor.
-        </Text>
-        <HStack>
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-        </HStack>
-      </Flex>
-      <Flex as="section" direction="column" align="center" py="6rem">
-        <Heading
-          fontSize="12pt"
-          textTransform="uppercase"
-          letterSpacing="0.6em"
-        >
-          Media Partner
-        </Heading>
-        <Text fontSize="20pt" mb={6}>
-          Lorem, ipsum dolor.
-        </Text>
-        <HStack>
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-        </HStack>
-      </Flex>
-      {/* </VStack> */}
-    </Container>
+            <Accordion allowToggle maxW="xl" flexGrow={1}>
+              {HOME.faqs.map((faq, key) => (
+                <AccordionItem key={key}>
+                  <h2>
+                    <AccordionButton>
+                      <Box as="span" flex="1" textAlign="left">
+                        {faq.question}
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>{faq.answer}</AccordionPanel>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </Flex>
+        </Section>
+        {
+          // *END OF FAQ
+          // *======================================================================
+          // *SPONSORS
+        }
+        <Section direction="column" align="center">
+          <Circuit
+            display={{ base: "none", md: "block" }}
+            position="absolute"
+            right={-60}
+            fill="gray.200"
+            transform="rotate(180deg)"
+          />
+          <SectionHeading>Sponsor</SectionHeading>
+          <SectionSubheading>Lorem, ipsum dolor.</SectionSubheading>
+          <Flex wrap="wrap" justifyContent="center" gap={1}>
+            <ImageCard />
+            <ImageCard />
+            <ImageCard />
+            <ImageCard />
+            <ImageCard />
+            <ImageCard />
+            <ImageCard />
+          </Flex>
+        </Section>
+        {
+          // *END OF SPONSORS
+          // *======================================================================
+          // *MEDIA PARTNERS
+        }
+        <Section direction="column" align="center" pb={{ base: 20, md: 0 }}>
+          <SectionHeading>Media Partner</SectionHeading>
+          <SectionSubheading>Lorem, ipsum dolor.</SectionSubheading>
+          <Flex wrap="wrap" justifyContent="center" gap={1}>
+            <ImageCard />
+            <ImageCard />
+            <ImageCard />
+            <ImageCard />
+            <ImageCard />
+            <ImageCard />
+            <ImageCard />
+          </Flex>
+        </Section>
+        {
+          // *END OF MEDIA PARTNERS
+          // *======================================================================
+        }
+      </Container>
+    </Box>
   );
 }

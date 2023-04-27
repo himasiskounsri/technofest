@@ -1,16 +1,11 @@
-import { AddIcon } from "@chakra-ui/icons";
 import {
+  Button,
+  Card,
   Container,
-  Link,
-  Text,
-  VStack,
   Flex,
   Heading,
-  Card,
-  HStack,
-  Badge,
-  Alert,
-  Button,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
 
 export default function ConfirmPayment() {

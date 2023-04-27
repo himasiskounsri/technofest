@@ -1,12 +1,12 @@
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import {
-  useColorModeValue,
-  Stack,
+  Box,
   Flex,
   Icon,
-  Text,
-  Box,
   Link,
+  Stack,
+  Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 import React from "react";
